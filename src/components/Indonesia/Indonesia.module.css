@@ -1,0 +1,57 @@
+.indonesia {
+    background-color: #F8F9FA;
+}
+
+.indonesia .indonesia_container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 4rem 1.5rem;
+}
+
+.indonesia .indonesia_container .indonesia_head {
+    text-align: center;
+}
+
+.indonesia .indonesia_container .indonesia_head h1 {
+    color: var(--primary-color);
+}
+
+.indonesia .indonesia_container .indonesia_head p {
+    color: var(--secondary-color);
+}
+
+.indonesia .indonesia_container .indonesia_data {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    column-gap: 30px;
+    margin-top: 50px;
+}
+
+.indonesia .indonesia_container .indonesia_data .card {
+    padding: 5rem;
+    border-radius: 20px;
+    box-sizing: border-box;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 4px 4px rgba(0,0,0,.25);
+}
+
+.indonesia .indonesia_container .indonesia_data .card:nth-child(1) h1 {
+    color: var(--primary-color);
+}
+
+.indonesia .indonesia_container .indonesia_data .card:nth-child(2) h1 {
+    color: var(--secondary-color);
+}
+
+.indonesia .indonesia_container .indonesia_data .card:nth-child(3) h1 {
+    color: var(--danger-color);
+}
+
+@media (max-width: 600px) {
+    .indonesia .indonesia_container .indonesia_data {
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 30px;
+    }
+}

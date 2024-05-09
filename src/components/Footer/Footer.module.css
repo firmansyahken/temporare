@@ -1,0 +1,35 @@
+.footer {
+    margin-top: 50px;
+    background-color: var(--primary-color);
+}
+
+.footer .footer_container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer .footer_container .footer_author {
+    color: white;
+}
+
+.footer .footer_container .footer_link {
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+}
+
+.footer .footer_container .footer_link a {
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .footer .footer_container {
+        flex-direction: column;
+        text-align: center;
+        row-gap: 40px;
+    }
+}
