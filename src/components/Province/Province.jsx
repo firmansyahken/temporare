@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import style from "./Province.module.css";
 import data from "../../utils/constants/provinces";
+import FormContext from "../../utils/context/FormContext";
 
 const Province = () => {
+  const {provinces} = useContext(FormContext);
+
   return (
     <>
       <div className={style.province}>
@@ -13,15 +16,17 @@ const Province = () => {
         <div className={style.province_table}>
           <table>
             <thead>
-              <th>No</th>
-              <th>Provinsi</th>
-              <th>Positif</th>
-              <th>Sembuh</th>
-              <th>Dirawat</th>
-              <th>Meninggal</th>
+              <tr>
+                <th>No</th>
+                <th>Provinsi</th>
+                <th>Positif</th>
+                <th>Sembuh</th>
+                <th>Dirawat</th>
+                <th>Meninggal</th>
+              </tr>
             </thead>
             <tbody>
-              {data.provinces.map((province, index) => (
+              {provinces.map((province, index) => (
                 <tr key={index}>
                   <td>{index + 1}</td>
                   <td>{province.kota}</td>

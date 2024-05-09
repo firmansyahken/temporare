@@ -1,8 +1,13 @@
 import HomePage from "./pages/Home/Home";
+import { FormProvider } from "./utils/context/FormContext"
 
 function App() {
   return (
-    <HomePage />
+    <>
+      <FormProvider>
+          <HomePage />
+      </FormProvider>
+    </>
   );
 }
 

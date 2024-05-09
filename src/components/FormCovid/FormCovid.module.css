@@ -29,7 +29,7 @@
     margin-bottom: 15px;
 }
 
-.form .form_container .form_content .form_input input {
+.form .form_container .form_content .form_input input, select {
     border: none;
     outline: none;
     background-color: white;
