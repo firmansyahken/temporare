@@ -78,10 +78,3 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
-
-.wrapper {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 1.5rem;
-  box-sizing: border-box;
-}

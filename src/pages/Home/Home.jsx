@@ -1,23 +1,13 @@
 import Hero from "../../components/Hero/Hero";
-import Navbar from "../../components/Navbar/Navbar";
-import Indonesia from "../../components/Indonesia/Indonesia";
-import Province from "../../components/Province/Province";
-import FormCovid from "../../components/FormCovid/FormCovid";
-import Footer from "../../components/Footer/Footer";
+import GlobalRegion from "../../components/Region/GlobalRegion";
+import Situation from "../../components/Situation/Situation";
 
 function HomePage() {
   return (
     <>
-      <Navbar/>
-      <div className="wrapper">
-          <Hero/>
-      </div>
-      <Indonesia/>
-      <div className="wrapper">
-        <Province/>
-      </div>
-      <FormCovid/>
-      <Footer/>
+      <Hero/>
+      <Situation category="Global"/>
+      <GlobalRegion/>
     </>
   );
 }

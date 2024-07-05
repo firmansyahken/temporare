@@ -1,14 +1,12 @@
-import React, { useContext } from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
-import FormContext from "../../utils/context/FormContext";
 
 const Wrapper = styled.div`
   max-width: 1200px;
   margin: auto;
   padding: 0 1.5rem;
   box-sizing: border-box;
-`;
-
+`
 const ProvinceContainer = styled.div`
   padding: 4rem 0;
 `;
@@ -45,19 +43,26 @@ const ProvinceTable = styled.div`
     color: var(--primary-color);
     border-color: black;
   }
-
 `;
 
-const Province = (props) => {
-  const { provinces } = useContext(FormContext);
+
+const ProvinceRegion = () => {
+  const API = "https://covid-fe-2023.vercel.app/api/indonesia.json"
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch(API).then(r => r.json())
+      .then((response) => {
+        return setData(response.regions)
+      })
+  }, [])
 
   return (
     <>
       <Wrapper>
-
         <ProvinceContainer>
           <ProvinceHead>
-            <h1>Provinsi</h1>
+            <h1>Situation by Provinces</h1>
             <p>Data Covid Berdasarkan Provinsi</p>
           </ProvinceHead>
           <ProvinceTable>
@@ -73,14 +78,14 @@ const Province = (props) => {
                 </tr>
               </thead>
               <tbody>
-                {provinces.map((province, index) => (
+                {data.map((region, index) => (
                   <tr key={index}>
                     <td>{index + 1}</td>
-                    <td>{province.kota}</td>
-                    <td>{province.kasus}</td>
-                    <td>{province.sembuh}</td>
-                    <td>{province.dirawat}</td>
-                    <td>{province.meninggal}</td>
+                    <td>{region.name}</td>
+                    <td>{region.numbers.confirmed}</td>
+                    <td>{region.numbers.recovered}</td>
+                    <td>{region.numbers.treatment}</td>
+                    <td>{region.numbers.death}</td>
                   </tr>
                 ))}
               </tbody>
@@ -92,4 +97,4 @@ const Province = (props) => {
   );
 };
 
-export default Province;
+export default ProvinceRegion;
