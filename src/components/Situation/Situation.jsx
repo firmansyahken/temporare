@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import CardSituation from "../Card/CardSituation";
 
 const SituationContainer = styled.div`
   background-color: #F8F9FA;
@@ -36,27 +37,6 @@ const Data = styled.div`
   }
 `;
 
-const Card = styled.div`
-  padding: 4rem 2.5rem;
-  border-radius: 20px;
-  box-sizing: border-box;
-  background-color: white;
-  text-align: center;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-
-  &:nth-child(1) h1 {
-    color: var(--primary-color);
-  }
-
-  &:nth-child(2) h1 {
-    color: var(--secondary-color);
-  }
-
-  &:nth-child(3) h1 {
-    color: var(--danger-color);
-  }
-`;
-
 const Situation = (props) => {
   const APIS = {
     Global: "https://covid-fe-2023.vercel.app/api/global.json",
@@ -85,10 +65,11 @@ const Situation = (props) => {
           </Head>
           <Data>
             {data.map((d, index) => (
-              <Card key={index}>
-                <h3>{d.status}</h3>
-                <h1>{d.total}</h1>
-              </Card>
+              <CardSituation
+                key={index}
+                status={d.status}
+                total={d.total}
+              />
             ))}
           </Data>
         </Container>

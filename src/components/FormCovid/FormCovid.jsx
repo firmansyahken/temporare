@@ -56,13 +56,20 @@ const FormInput = styled.div`
   }
 `;
 
+const ErrorMessage = styled.div`
+  color: red;
+  font-size: var(--body-size);
+`
+
 const FormCovid = () => {
   const { updateData } = useContext(FormContext);
   const [formData, setFormData] = useState({
     provinsi: "0",
     status: "kasus",
-    total: "0"
+    total: ""
   });
+
+  const [validation, setValidation] = useState(null); 
 
   const handleInput = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -70,9 +77,15 @@ const FormCovid = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    
+    if(formData.total == '') {
+      return setValidation("Isi Data Terlebih Dahulu")
+    }
+
     updateData(formData);
     e.target.reset();
-    setFormData({ provinsi: "0", status: "kasus", total: "0" });
+    setFormData({ provinsi: "0", status: "kasus", total: "" });
+    setValidation(null);
   };
 
   const statuses = [
@@ -122,6 +135,7 @@ const FormCovid = () => {
             <FormInput>
               <label>Jumlah</label>
               <input onChange={handleInput} name="total" type="number" />
+              {validation && <ErrorMessage>{validation}</ErrorMessage>}
             </FormInput>
             <FormInput>
               <Button title="Submit" />

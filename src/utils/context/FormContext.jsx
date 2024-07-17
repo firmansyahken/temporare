@@ -9,7 +9,7 @@ export const FormProvider = ({children}) => {
     const updateData = (newData) => {
         const updatedProvinces = [...provinces];
         const provinceToUpdate = updatedProvinces[newData.provinsi];
-        provinceToUpdate[newData.status] = newData.total;
+        provinceToUpdate[newData.status] += parseInt(newData.total);
         setProvinces(updatedProvinces);
     }
 
